@@ -11,10 +11,6 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne
-    @JoinColumn (name = "user_id", referencedColumnName = "id")
-    private User user;
-
     @Column(name = "series")
     private int series;
 
@@ -26,14 +22,6 @@ public class Car {
     public Car(int series, String model) {
         this.series = series;
         this.model = model;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     public int getSeries() {
@@ -63,8 +51,7 @@ public class Car {
     @Override
     public String toString() {
         return "Car{" +
-                "user=" + user +
-                ", series=" + series +
+                "series=" + series +
                 ", model='" + model + '\'' +
                 '}';
     }
